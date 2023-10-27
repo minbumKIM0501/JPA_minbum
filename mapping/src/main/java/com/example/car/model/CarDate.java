@@ -1,9 +1,12 @@
 package com.example.car.model;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
+@Embeddable
 public class CarDate {
 
     @Column(name = "RELEASE")
@@ -12,7 +15,7 @@ public class CarDate {
     private LocalDate enrollDate; // 현재 날짜
 
     @Column(name = "D_DAY")
-    private Long dDay;
+    private long dDay;
 
     protected CarDate() {}
 
@@ -23,7 +26,8 @@ public class CarDate {
     }
 
     private long dDayGet(LocalDate release, LocalDate enrollDate) {
-        Long dDay = ChronoUnit.DAYS.between(enrollDate,release);
+
+        long dDay = ChronoUnit.DAYS.between(enrollDate,release);
 
         return dDay;
     }
@@ -39,6 +43,7 @@ public class CarDate {
         return dDay;
     }
 
+    @Override
     public String toString() {
         return "CarDate{" +
                 "release=" + release +

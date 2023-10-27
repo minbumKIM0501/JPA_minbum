@@ -29,6 +29,9 @@ public class Car {
     @Embedded
     private CarDate carDate;
 
+    protected Car() {
+    }
+
     protected Car(String brand, String kind, String owners, int price, String option, String country, String color, CarDate carDate) {}
 
     public Car(int carCode, String brand, String kind, String owners, int price, String option, String country, String color, CarDate carDate) {

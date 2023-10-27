@@ -1,5 +1,9 @@
 package com.example.car.model;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
 public class CarService {
 
     CarRepository carRepository;
@@ -8,6 +12,7 @@ public class CarService {
         this.carRepository = carRepository;
     }
 
+    @Transactional
     public void registCar(CarDTO carInfo) {
         Car car = new Car(
           carInfo.getBrand(),
